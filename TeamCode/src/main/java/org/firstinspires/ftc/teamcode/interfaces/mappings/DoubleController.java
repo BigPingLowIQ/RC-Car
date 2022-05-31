@@ -1,12 +1,8 @@
 package org.firstinspires.ftc.teamcode.interfaces.mappings;
 
-import com.qualcomm.robotcore.hardware.Gamepad;
-
-import org.firstinspires.ftc.teamcode.gamepad.GamepadEx;
 import org.firstinspires.ftc.teamcode.gamepad.GamepadMaster;
 import org.firstinspires.ftc.teamcode.interfaces.IInputMapping;
 
-import java.security.Key;
 
 public class DoubleController implements IInputMapping {
     GamepadMaster master;
