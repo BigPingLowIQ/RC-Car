@@ -20,4 +20,14 @@ public class DoubleController implements IInputMapping {
     public double motorsPower() {
         return master.gamepad1().right_trigger;
     }
+
+    @Override
+    public double steering() {
+        return (master.gamepad1().left_stick_x+1)/2;
+    }
+
+    @Override
+    public boolean toggleSong() {
+        return false;
+    }
 }

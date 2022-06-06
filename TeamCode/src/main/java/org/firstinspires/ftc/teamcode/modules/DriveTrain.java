@@ -32,7 +32,7 @@ public class DriveTrain implements IRobotModule {
 
     @Override
     public void loop() {
-
+        setPower(mapping.motorsPower()*DriveTrainConfig.POWER_MULTIPLIER);
     }
 }
 
