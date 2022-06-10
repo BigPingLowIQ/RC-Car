@@ -24,11 +24,36 @@ public class SingleController implements IInputMapping {
 
     @Override
     public double steering() {
-        return (master.gamepad1().left_stick_x+1)/2;
+        return master.gamepad1().left_stick_x;
     }
 
     @Override
     public boolean toggleSong() {
         return master.gamepad1Down().bPressed();
+    }
+
+    @Override
+    public double reversePower() {
+        return -master.gamepad1().left_trigger;
+    }
+
+    @Override
+    public boolean toggleSong2() {
+        return master.gamepad1Down().aPressed();
+    }
+
+    @Override
+    public boolean toggleSong3() {
+        return master.gamepad1Down().xPressed();
+    }
+
+    @Override
+    public boolean toggleSong4() {
+        return master.gamepad1Down().yPressed();
+    }
+
+    @Override
+    public boolean speed() {
+        return master.gamepad1().right_bumper;
     }
 }

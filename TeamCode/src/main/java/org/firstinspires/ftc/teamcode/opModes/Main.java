@@ -29,7 +29,13 @@ public class Main extends OpMode {
 
     ArrayList<IRobotModule> modules = new ArrayList<>();
     IInputMapping mapping;
+    Music music;
 
+
+    @Override
+    public void stop() {
+
+    }
 
     @Override
     public void init() {
@@ -43,7 +49,8 @@ public class Main extends OpMode {
         if(SteeringConfig.ENABLE_MODULE)
             modules.add(new Steering(hardwareMap,mapping));
         if(MusicConfig.ENABLE_MODULE)
-            modules.add(new Music(mapping));
+            modules.add(music = new Music(mapping));
+
 
 
 

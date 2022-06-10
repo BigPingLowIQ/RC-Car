@@ -6,10 +6,7 @@ import com.acmerobotics.dashboard.config.Config;
 public class DriveTrainConfig {
     public static boolean ENABLE_MODULE = true;
 
-    public static String MOTOR_FRONT_RIGHT = "mfr";
-    public static String MOTOR_FRONT_LEFT = "mfl";
-    public static String MOTOR_BACK_RIGHT = "mbr";
-    public static String MOTOR_BACK_LEFT = "mbl";
+    public static String MOTOR = "motor_spate";
 
     public static double POWER_MULTIPLIER = 0.5;
 

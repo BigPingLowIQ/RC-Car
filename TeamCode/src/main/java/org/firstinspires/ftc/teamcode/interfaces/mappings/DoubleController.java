@@ -30,4 +30,29 @@ public class DoubleController implements IInputMapping {
     public boolean toggleSong() {
         return false;
     }
+
+    @Override
+    public double reversePower() {
+        return 0;
+    }
+
+    @Override
+    public boolean toggleSong2() {
+        return false;
+    }
+
+    @Override
+    public boolean toggleSong3() {
+        return false;
+    }
+
+    @Override
+    public boolean toggleSong4() {
+        return false;
+    }
+
+    @Override
+    public boolean speed() {
+        return false;
+    }
 }
