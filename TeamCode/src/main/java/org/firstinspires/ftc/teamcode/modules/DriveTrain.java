@@ -11,14 +11,18 @@ import org.firstinspires.ftc.teamcode.interfaces.IRobotModule;
 public class DriveTrain implements IRobotModule {
     IInputMapping mapping;
     HardwareMap hm;
-    DcMotor motor;
-
+    DcMotor motor1;
+    DcMotor motor2;
 
     public DriveTrain(HardwareMap hm,IInputMapping mapping) {
         this.mapping = mapping;
         this.hm = hm;
-        motor = hm.get(DcMotor.class,DriveTrainConfig.MOTOR);
-        motor.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor1 = hm.get(DcMotor.class,DriveTrainConfig.MOTOR1);
+//        motor1.setDirection(DcMotorSimple.Direction.REVERSE);
+        motor2 = hm.get(DcMotor.class,DriveTrainConfig.MOTOR2);
+//        motor2.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
 
     }
 
@@ -28,7 +32,8 @@ public class DriveTrain implements IRobotModule {
     }
 
     private void setPower(double power){
-        motor.setPower(power);
+        motor1.setPower(power);
+        motor2.setPower(power);
     }
 
     @Override

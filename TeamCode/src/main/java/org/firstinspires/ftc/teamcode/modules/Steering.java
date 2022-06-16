@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.modules;
 
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -22,6 +23,7 @@ public class Steering implements IRobotModule {
 //        servo.setDirection(Servo.Direction.REVERSE);
 
         motor = hm.get(DcMotor.class, SteeringConfig.STEERING_SERVO);
+        motor.setDirection(DcMotorSimple.Direction.REVERSE);
         motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motor.setTargetPosition(0);
