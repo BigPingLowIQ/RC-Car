@@ -12,7 +12,7 @@ public class DoubleController implements IInputMapping {
     }
 
     @Override
-    public boolean emergencyStop() {
+    public boolean emergencyStopMapping() {
         return (master.gamepad1().start && master.gamepad1().a) || (master.gamepad2().start && master.gamepad2().a);
     }
 

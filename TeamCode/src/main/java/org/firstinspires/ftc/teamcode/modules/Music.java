@@ -39,8 +39,6 @@ public class Music implements IRobotModule {
     @Override
     public void loop() {
         if(mapping.toggleSong()){
-            if(!player1.isPlaying()) player1.start();
-            else player1.pause();
         }
 
     }
