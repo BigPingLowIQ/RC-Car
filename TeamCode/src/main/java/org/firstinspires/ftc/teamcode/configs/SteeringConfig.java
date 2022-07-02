@@ -8,7 +8,7 @@ public class SteeringConfig {
 
     public static String STEERING_SERVO = "steer-servo";
 
-    public static double STEERING_COEFF = 0.1;
+    public static double STEERING_COEFF = 0.09;
     public static double STEPS_PER_REVOLUTION = 3895.9;
 
 }

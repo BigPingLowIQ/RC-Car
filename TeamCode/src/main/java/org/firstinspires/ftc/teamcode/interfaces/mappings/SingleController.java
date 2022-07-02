@@ -28,6 +28,9 @@ public class SingleController implements IInputMapping {
     }
 
     @Override
+    public boolean steeringCalibrate() {return master.gamepad1Down().dPadUpPressed();}
+
+    @Override
     public boolean toggleSong() {
         return master.gamepad1Down().bPressed();
     }

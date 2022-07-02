@@ -22,8 +22,6 @@ public class DriveTrain implements IRobotModule {
         motor2 = hm.get(DcMotor.class,DriveTrainConfig.MOTOR2);
 //        motor2.setDirection(DcMotorSimple.Direction.REVERSE);
 
-
-
     }
 
     @Override

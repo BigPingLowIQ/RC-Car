@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.vuforia.Device;
 
 import org.firstinspires.ftc.teamcode.configs.SteeringConfig;
 import org.firstinspires.ftc.teamcode.interfaces.IInputMapping;
@@ -15,6 +16,8 @@ public class Steering implements IRobotModule {
     HardwareMap hm;
 //    Servo servo;
     DcMotor motor;
+    private boolean isCalibrating = false;
+    private double startPosition = 0;
 
     public Steering(HardwareMap hm, IInputMapping mapping) {
         this.mapping = mapping;
@@ -39,9 +42,16 @@ public class Steering implements IRobotModule {
     @Override
     public void loop() {
 
-//        servo.setPosition(applyBounds(SteeringConfig.RIGHT_LIMIT, SteeringConfig.LEFT_LIMIT,mapping.steering()));
 
-        motor.setTargetPosition((int) (SteeringConfig.STEPS_PER_REVOLUTION * SteeringConfig.STEERING_COEFF * mapping.steering()));
+        if(mapping.steeringCalibrate())
+            isCalibrating=!isCalibrating;
+
+        if(isCalibrating) {
+            startPosition += mapping.steering() * 2;
+            motor.setTargetPosition((int) (startPosition));
+        }else {
+            motor.setTargetPosition((int) (startPosition + SteeringConfig.STEPS_PER_REVOLUTION * SteeringConfig.STEERING_COEFF * mapping.steering()));
+        }
         motor.setPower(1);
     }
 

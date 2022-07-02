@@ -37,7 +37,7 @@ public class DragMain extends OpMode {
         telemetry = new MultipleTelemetry(telemetry,dash.getTelemetry());
 
 
-        DragController dc = new DragController(new GamepadMaster(gamepad1,gamepad2),hardwareMap);
+        DragController dc = new DragController(new GamepadMaster(gamepad1,gamepad2),hardwareMap,telemetry);
         mapping = dc;
 
         if(DriveTrainConfig.ENABLE_MODULE)

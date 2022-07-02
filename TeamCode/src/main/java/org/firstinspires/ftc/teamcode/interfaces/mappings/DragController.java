@@ -5,6 +5,7 @@ import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -21,20 +22,23 @@ public class DragController implements IInputMapping, IRobotModule {
     private Orientation angles;
 
     public static double integralSum = 0;
-    public static double Kp = 0;
+    public static double Kp = 0.02;
     public static double Ki = 0;
-    public static double Kd = 0;
-    public static double MOTOR_POWER = 0.3;
+    public static double Kd = 0.;
+    public static double MOTOR_POWER = 0;
+    private double initialAngle;
 
     ElapsedTime timer = new ElapsedTime();
     private double lastError = 0;
 
     private double steeringVal = 0;
+    private Telemetry telemetry;
+    private boolean init = true;
 
-
-    public DragController(GamepadMaster master, HardwareMap hm) {
+    public DragController(GamepadMaster master, HardwareMap hm, Telemetry telemetry) {
         this.master = master;
         this.hm = hm;
+        this.telemetry = telemetry;
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
@@ -43,14 +47,22 @@ public class DragController implements IInputMapping, IRobotModule {
         imu = hm.get(BNO055IMU.class,"imu");
         imu.initialize(parameters);
 
+        initialAngle = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYZ, AngleUnit.RADIANS).firstAngle;
+
     }
 
     @Override
     public void loop() {
 
-        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYZ, AngleUnit.DEGREES);
+        angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYZ, AngleUnit.RADIANS);
+        if(init){initialAngle = angles.firstAngle;init = false;}
 
-        double output = PIDControl(0,angles.firstAngle);
+        telemetry.addData("initialAngle",initialAngle);
+        telemetry.addData("currentAngle",angles.firstAngle);
+
+        double output = -PIDControl(initialAngle,angles.firstAngle);
+
+        telemetry.addData("output",output);
 
         if(output<-1)output = -1;
         if(output>1)output = 1;
@@ -88,6 +100,10 @@ public class DragController implements IInputMapping, IRobotModule {
         return steeringVal;
     }
 
+    @Override
+    public boolean steeringCalibrate() {
+        return false;
+    }
 
 
     @Override

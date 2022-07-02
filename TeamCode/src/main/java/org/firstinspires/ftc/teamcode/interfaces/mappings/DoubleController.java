@@ -27,6 +27,11 @@ public class DoubleController implements IInputMapping {
     }
 
     @Override
+    public boolean steeringCalibrate() {
+        return false;
+    }
+
+    @Override
     public boolean toggleSong() {
         return false;
     }
