@@ -15,6 +15,7 @@ import org.firstinspires.ftc.teamcode.interfaces.IRobotModule;
 import org.firstinspires.ftc.teamcode.interfaces.mappings.SingleController;
 import org.firstinspires.ftc.teamcode.modules.DriveTrain;
 import org.firstinspires.ftc.teamcode.modules.Music;
+import org.firstinspires.ftc.teamcode.modules.MusicController;
 import org.firstinspires.ftc.teamcode.modules.Steering;
 
 import java.util.ArrayList;
@@ -44,12 +45,10 @@ public class Main extends OpMode {
             modules.add(new DriveTrain(hardwareMap, mapping));
         if(SteeringConfig.ENABLE_MODULE)
             modules.add(new Steering(hardwareMap,mapping));
-        if(MusicConfig.ENABLE_MODULE)
-            modules.add(music = new Music(mapping));
-
-
-
-
+        if(MusicConfig.ENABLE_MODULE) {
+            modules.add(music = new Music(telemetry));
+            modules.add(new MusicController(mapping,music));
+        }
 
     }
 

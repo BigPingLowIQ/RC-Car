@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.teamcode.gamepad.GamepadMaster;
 import org.firstinspires.ftc.teamcode.interfaces.IInputMapping;
 
+import javax.crypto.MacSpi;
+
 public class SingleController implements IInputMapping {
     GamepadMaster master;
 
@@ -31,32 +33,47 @@ public class SingleController implements IInputMapping {
     public boolean steeringCalibrate() {return master.gamepad1Down().dPadUpPressed();}
 
     @Override
-    public boolean toggleSong() {
-        return master.gamepad1Down().bPressed();
-    }
-
-    @Override
     public double reversePower() {
         return -master.gamepad1().left_trigger;
     }
 
     @Override
-    public boolean toggleSong2() {
-        return master.gamepad1Down().aPressed();
+    public boolean speed() {
+        return master.gamepad1().right_bumper;
     }
 
     @Override
-    public boolean toggleSong3() {
+    public boolean nextTrack() {
+        return master.gamepad1Down().dPadRightPressed();
+    }
+
+    @Override
+    public boolean previousTrack() {
+        return master.gamepad1Down().dPadLeftPressed();
+    }
+
+    @Override
+    public boolean playlist1() {
         return master.gamepad1Down().xPressed();
     }
 
     @Override
-    public boolean toggleSong4() {
+    public boolean playlist2() {
         return master.gamepad1Down().yPressed();
     }
 
     @Override
-    public boolean speed() {
-        return master.gamepad1().right_bumper;
+    public boolean playlist3() {
+        return master.gamepad1Down().bPressed();
+    }
+
+    @Override
+    public boolean horn() {
+        return master.gamepad1Down().aPressed();
+    }
+
+    @Override
+    public boolean togglePlay() {
+        return master.gamepad1Down().dPadDownPressed();
     }
 }

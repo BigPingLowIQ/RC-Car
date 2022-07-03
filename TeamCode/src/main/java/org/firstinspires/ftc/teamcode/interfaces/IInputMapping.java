@@ -5,10 +5,13 @@ public interface IInputMapping {
     double motorsPower();
     double steering();
     boolean steeringCalibrate();
-    boolean toggleSong();
     double reversePower();
     boolean speed();
-    boolean toggleSong2();
-    boolean toggleSong3();
-    boolean toggleSong4();
+    boolean nextTrack();
+    boolean previousTrack();
+    boolean playlist1();
+    boolean playlist2();
+    boolean playlist3();
+    boolean horn();
+    boolean togglePlay();
 }

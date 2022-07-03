@@ -7,20 +7,9 @@ public class MusicConfig {
     public static boolean ENABLE_MODULE = true;
 
     public static String FOLDER_PATH = "/storage/emulated/0/Music/";
-    public static String[] music = {
-            "B.U.G. Mafia - Pe Coasta.mp3",
-            "Acceleratie.mp3",
-            "Sututu.mp3",
-            "PumpItUp.mp3",
-            "Oye.mp3",
-            "ROllin.mp3"
-    };
-
-
-
-
-
-
-
+    public static String horn = FOLDER_PATH+"clownhorn.mp3";
+    public static String playlist1songs = "Beethoven-MoonlightSonata.mp3 DmitriShostakovich-TheSecondWaltz.mp3 MasqueradeSuite-Waltz.mp3 Chopin-EtudeOp10No4.mp3 ErikSatie-GnossienneNo1.mp3 Chopin-NocturneOp55No1.mp3 Grieg-IntheHalloftheMountainKing.mp3";
+    public static String playlist2songs = "Sututu.mp3 Acceleratie.mp3 PumpItUp.mp3 Oye.mp3";
+    public static String playlist3songs = "ROllin.mp3 clownhorn.mp3";
 
 }

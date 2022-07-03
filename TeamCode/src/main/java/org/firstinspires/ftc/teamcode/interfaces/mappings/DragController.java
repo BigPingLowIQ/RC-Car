@@ -106,10 +106,7 @@ public class DragController implements IInputMapping, IRobotModule {
     }
 
 
-    @Override
-    public boolean toggleSong() {
-        return false;
-    }
+
 
     @Override
     public double reversePower() {
@@ -117,22 +114,42 @@ public class DragController implements IInputMapping, IRobotModule {
     }
 
     @Override
-    public boolean toggleSong2() {
-        return false;
-    }
-
-    @Override
-    public boolean toggleSong3() {
-        return false;
-    }
-
-    @Override
-    public boolean toggleSong4() {
-        return false;
-    }
-
-    @Override
     public boolean speed() {
+        return false;
+    }
+
+    @Override
+    public boolean nextTrack() {
+        return false;
+    }
+
+    @Override
+    public boolean previousTrack() {
+        return false;
+    }
+
+    @Override
+    public boolean playlist1() {
+        return false;
+    }
+
+    @Override
+    public boolean playlist2() {
+        return false;
+    }
+
+    @Override
+    public boolean playlist3() {
+        return false;
+    }
+
+    @Override
+    public boolean horn() {
+        return false;
+    }
+
+    @Override
+    public boolean togglePlay() {
         return false;
     }
 }
