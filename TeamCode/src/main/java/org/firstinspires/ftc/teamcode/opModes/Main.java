@@ -42,7 +42,7 @@ public class Main extends OpMode {
         mapping = new SingleController(new GamepadMaster(gamepad1,gamepad2));
 
         if(DriveTrainConfig.ENABLE_MODULE)
-            modules.add(new DriveTrain(hardwareMap, mapping));
+            modules.add(new DriveTrain(hardwareMap, mapping,telemetry));
         if(SteeringConfig.ENABLE_MODULE)
             modules.add(new Steering(hardwareMap,mapping));
         if(MusicConfig.ENABLE_MODULE) {

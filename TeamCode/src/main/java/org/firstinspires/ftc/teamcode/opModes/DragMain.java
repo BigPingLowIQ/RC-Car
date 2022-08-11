@@ -41,7 +41,7 @@ public class DragMain extends OpMode {
         mapping = dc;
 
         if(DriveTrainConfig.ENABLE_MODULE)
-            modules.add(new DriveTrain(hardwareMap, mapping));
+
         if(SteeringConfig.ENABLE_MODULE)
             modules.add(new Steering(hardwareMap,mapping));
         modules.add(dc);
